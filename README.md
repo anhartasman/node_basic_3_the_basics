@@ -7,3 +7,7 @@ Mempelajari cara membuat server dengan node js
 ### 27. The Node Lifecycle & Event Loop
 
 Mempelajari cara menghentikan program
+
+### 29. Understanding Requests
+
+Mempelajari request
