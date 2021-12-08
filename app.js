@@ -20,14 +20,14 @@ const server = http.createServer((req, res) => {
     req.on("data", (chunk) => {
       body.push(chunk);
     });
-    req.on("end", () => {
+    return req.on("end", () => {
       const parsedBody = Buffer.concat(body).toString();
       const message = parsedBody.split("=")[1];
       fs.writeFileSync("message.txt", message);
+      res.statusCode = 302; //302 artinya redirect
+      res.setHeader("Location", "/");
+      return res.end();
     });
-    res.statusCode = 302; //302 artinya redirect
-    res.setHeader("Location", "/");
-    return res.end();
   }
   res.setHeader("content-type", "text/html");
   res.write("<html>");
