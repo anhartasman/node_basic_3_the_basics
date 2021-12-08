@@ -31,3 +31,7 @@ Memparsing isi request
 ### 35. Understanding Event Driven Code Execution
 
 Memahami alur kodingan
+
+### 36. Blocking and Non-Blocking Code
+
+Memahami blocking dan non-blocking code

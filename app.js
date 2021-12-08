@@ -20,13 +20,18 @@ const server = http.createServer((req, res) => {
     req.on("data", (chunk) => {
       body.push(chunk);
     });
+    //menggunakan event driven development
     return req.on("end", () => {
       const parsedBody = Buffer.concat(body).toString();
       const message = parsedBody.split("=")[1];
-      fs.writeFileSync("message.txt", message);
-      res.statusCode = 302; //302 artinya redirect
-      res.setHeader("Location", "/");
-      return res.end();
+      //writeFile memanggil function setelah selesai
+      //writeFileSync menahan/memblock kodingan hingga selesai
+      fs.writeFile("message.txt", message, (err) => {
+        //err akan null jika tidak ada error
+        res.statusCode = 302; //302 artinya redirect
+        res.setHeader("Location", "/");
+        return res.end();
+      });
     });
   }
   res.setHeader("content-type", "text/html");
