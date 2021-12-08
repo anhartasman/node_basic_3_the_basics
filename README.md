@@ -19,3 +19,7 @@ Menampilan response dari server
 ### 32. Routing Requests
 
 Memberikan routing
+
+### 33. Redirecting Requests
+
+Meredirect request
